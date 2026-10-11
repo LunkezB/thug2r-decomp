@@ -43,6 +43,15 @@ feat(phase-[N]): [phase name] complete — [one-line summary]
 *(…or "None — [where the phase's lessons went instead: cookbook / effort-map / a deviation note].")*
 **On writing this table: also append each rule's full text to `RULES_REGISTRY.md` §F under `### Phase [N]`, in the same change** (P8 / registry Maintenance Protocol). This table is the origin story; the registry carries the operative text.
 
+## What we believed, what failed and why it looked right, what it cost, and what we would do sooner
+
+*(For the retrospective. Narrative, not a table; every cost with its denominator; the detail is in the decision log.)*
+
+- **Believed:** [what the phase assumed at its plan]. **True / false:** [what was actually the case]. **Sooner:** [what
+  would have found it earlier — a control, a tool, an order of work].
+- **Failed, and why it looked right:** [the failure; the reason it was not caught the same day].
+- **Cost:** [tokens, sessions, rework — of what].
+
 ## PhaseEnd Changelog
 
 `v[X.Y.Z] → v[X.Y+1.Z]` — [Build Log / Deviations / New Rules deltas in one or two lines]

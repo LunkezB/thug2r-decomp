@@ -77,3 +77,6 @@ __pycache__/
 /tools/reference/
 .vscode/
 Thumbs.db
+
+# decomp-architect (the day-one kit's package folder — safe to delete after install)
+decomp-architect/

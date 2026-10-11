@@ -39,3 +39,28 @@
 ## Notes / deviations
 
 - [anything worth carrying into the PhaseEnd's Deviations table]
+
+## 🛑 SESSION CHECKPOINT — Tasks [done] ✓; NEXT = task [N] ([one line]; **[effort]** — prompt the developer)
+
+### 0. How to use this block
+You are a FRESH SESSION that has read the constitution, the registry, `phase-ends/DIGEST.md`, the three most recent
+PhaseEnds and this file, and nothing else. Replay this block verbatim, state phase / done / NEXT / effort, recite the
+rules, then WAIT for the developer. Rebuild the harness task list from the checklist above, marking the done tasks
+completed and task [N] in progress.
+
+### 1. Where we are
+[Phase, version, gate-1 date and effort setting; baseline HEAD and every task's commit hash; the fleet's green count
+from the last clean run ("tree-clean" and "fleet-green" are different invariants — quote both); what is tracked and
+what is scratch; what is ALREADY banked for later tasks (so nothing is redone); what is running in the background
+(or "nothing"); the session number; the developer's effort at the end of the last session and the effort the next
+task needs.]
+
+### 2. What NEXT does (task [N], **[effort]**) — exact steps
+Read first: [every file, with the section to read and why].
+Write / run: [numbered steps with the exact commands, their gotchas, and the expected outputs].
+Verify: [the exact checks and their expected literal results]. Log + checkpoint; commit by explicit path. [The effort
+transition after this task, if any — prompt the developer.]
+
+### 3. Standing facts for every task of this phase
+- One commit per task, after this file's log line; commit by explicit path; no trailers; the developer pushes.
+- [the phase's invariants: what is never edited, what is never run, the checks that must stay green, the vocabulary]

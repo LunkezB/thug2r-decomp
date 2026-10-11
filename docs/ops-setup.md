@@ -61,3 +61,68 @@ TODO(phase-3): the clean fleet check — every binary from clean → extract →
 4. Re-point `.claude/settings.local.json`'s `autoMemoryDirectory` at this clone's absolute `.claude-state/memory` path.
 5. Run the test gate to confirm the environment is live.
 6. Copy the dump to the new machine (outside the repository) and update the machine-local dump path in the Decomp environment section below; then run `python3 tools/audit_public.py` and, from Phase 3 on, the clean fleet check.
+
+## Decomp environment (decomp-architect, Phase 0.5 — installed 2026-10-11)
+
+### Version pins (decomp)
+
+| Component | Version | Notes / why pinned |
+|---|---|---|
+| The pinned toolchain triple (compiler → assembler shim → binutils, with flags) | TODO(phase-4) | TODO(phase-4): pinned by fingerprint evidence down the candidate ladder; the assembler's compatibility version is always passed explicitly — a shim's default is not "latest" |
+| Candidate compiler family (from the SDK evidence) | the PSP compilers of 2004-05: Sony psp-gcc (GCC-based), SN Systems pspsnc, Metrowerks mwccpsp (all three are decomp.me candidates); possibly mixed per module; C and/or C++ | the candidate set the pin phase runs down; never a sibling project's triple |
+| The splitter / disassembler and its config | TODO(phase-3) | version pinned in the bootstrap script |
+| The disassembler database and its agent server | TODO(phase-2) | the static oracle; the database is tracked as a TEXT export with a rebuild script |
+| The emulator and its scripting bridge | TODO(phase-2) | the runtime oracle |
+
+### The game and the medium
+
+- **Title / platform / serial:** Tony Hawk's Underground 2: Remix · PlayStation Portable (PSP) · the Feb 17, 2005 prototype build (serial to be read from the image's PARAM.SFO in Phase 1)
+- **The main executable on the medium:** `BOOT.BIN` (its hash is the first per-binary contract, Phase 3)
+- **Container layout:** a UMD image (ISO 9660): PSP_GAME/PARAM.SFO; code in PSP_GAME/SYSDIR (BOOT.BIN, the unencrypted executable this build boots from, and EBOOT.BIN); game data in PSP_GAME/USRDIR in the game's own archive formats; any further code modules located in Phase 1
+- **SDK / compiler-era evidence:** not yet inspected (no dump read at Phase 0.5); Phases 1-2 read the executable's module info, its import stubs (library names and NIDs) and any toolchain strings
+- **The dump (machine-local, never committed):** `/mnt/user-data/uploads` — copied once onto a fast local filesystem under `disks/`
+  (ignored); the extractor reads it, nothing builds against it.
+
+### Build / extract / verify (decomp)
+
+```
+# extract the medium and verify against the committed manifest
+TODO(phase-1)
+# the clean fleet verification — every binary from clean → extract → build, exit code read
+TODO(phase-3)
+```
+
+- **The gate:** a binary is green only when its hash check inside `make build` passes; a match is verified from a CLEAN
+  rebuild, never incremental; the executable is gated only by a clean rebuild; a build is verified by its exit code.
+
+### The oracles (decomp)
+
+- **Disassembler MCP:** TODO(phase-2) — verify with one cheap call before any reverse-engineering task; after a
+  restart or a program switch, pause and ask the developer to reconnect the client.
+- **Emulator bridge:** TODO(phase-2) — a live-memory finding is verified only with three or more consistent datapoints
+  or a controlled before/after diff.
+
+### Git posture (decomp)
+
+- **Visibility at day one:** public from the first push (2026-10-11) — the ROM firewall applies either way (`config/firewall.txt`,
+  `tools/audit_public.py`, the CI workflow). If ever private, a later flip is gated on the host's object store, never on
+  a clean tree.
+- Never `git clean -x` in this tree (the game-derived data is ignored-but-present); the backup of the reverse-engineering
+  work is the text export + the checksum files + a private archive repository, not the ignored directories.
+
+### Tooling inventory (decomp)
+
+| Tool | Location | Purpose |
+|---|---|---|
+| `tools/audit_public.py` | `tools/` | the ROM audit (purge paths, the derived hash set, the size cap, the pasted-disassembly check); the first-push gate and the CI job; its sources are `config/firewall.txt` |
+| `make format` | `Makefile` | clang-format over `src/` with the tracked `.clang-format` (the community style) |
+| TODO(phase-1): the extractor, the manifest | `tools/` | — |
+
+### The three dictionaries (the kit master copy — consulted, never copied into this repository)
+
+| Corpus | Where | How to use it |
+|---|---|---|
+| The tool dictionary — the source project's tools, verbatim, by ladder phase, keyed by the need each answers | `<kit master copy>/decomp-architect/corpus/tools/INDEX.md` (installed summary: `docs/tools-manifest.md`) | before designing or debugging a tool, grep the index by the need; the matching file is the jumping-off point, its Adapt column the list of what differs here |
+| The inherited knowledge base — the cookbook, its symptom index and the codegen map, verbatim | `<kit master copy>/decomp-architect/corpus/cookbook/` (installed front page: `docs/knowledge-corpus.md`) | same compiler family: look the symptom up, apply, re-prove on your bytes; another compiler: read the same pass in your compiler's source and find your own lever |
+| The inherited record — the source project's distilled records (the how-to, the decision log, the accelerators, the retrospective, the story, the playbook, the effort doctrine, the readability charter) and every phase-end, verbatim | `<kit master copy>/decomp-architect/corpus/record/` (installed front page: `docs/inherited-record.md`) | when a rule or kernel cites a source, open it here; the digest first, a phase-end on demand, the how-to in order |
+| Kit master copy location | `https://github.com/Druthulu/BFM-decomp/tree/e63ef6b54f0ccbbb656f963813585c4d9dce36bc/decomp-architect` (the commit this install used); clone it beside this repository when a corpus file is needed — the cloud workspace keeps no copy between sessions | — |

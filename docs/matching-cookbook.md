@@ -24,3 +24,33 @@
 *(The first entry lands here. Recommended entry shape: a short title, the trigger/situation, the technique, and a minimal example. Number sections `§1, §2, …`; append new phases' discoveries as new sections tagged with the phase that produced them.)*
 
 <!-- Grow me. Each entry = a reusable lesson, captured in-session, cross-linked to the rule or tool it informs. -->
+
+## The decomp entry shape (decomp-architect, installed 2026-10-11)
+
+Every idiom entry is byte-proven on a named function and carries four parts:
+
+1. **The residual** — what the diff looks like (the tell): the instruction, its position, the register, the count.
+2. **The mechanism** — which compiler pass produces it and why, with the dump line that shows it (a verdict without a
+   pass and a dump line is a hypothesis).
+3. **The lever** — the C-level change that moves it, stated as a shape (never a register pin as the answer; a pin is a
+   symptom). Before a lever enters this file, strip it from the accepted body and recompile: about one credited lever in
+   three is inert.
+4. **The byte proof** — the function, the diff before and after, the compilation the claim survived (standalone /
+   real translation unit / whole-binary).
+
+Pinned context for every entry: the toolchain triple `TODO(phase-4)` (TODO until Phase 4); the SDK evidence
+(not yet inspected (no dump read at Phase 0.5); Phases 1-2 read the executable's module info, its import stubs (library names and NIDs) and any toolchain strings); the target's calling convention and register roles (TODO(phase-4)).
+
+### The triage table (symptom → section) — the index a worker greps
+
+| Tell in the diff | Likely mechanism | Lever family | Section |
+|---|---|---|---|
+| a temporary in a spill slot | a reload artifact | reshape the live range; declaration order | TODO |
+| every small edit moves 20+ instructions | a register-pressure lock | hand to the permuter | TODO |
+| a load stuck below a store while other loads float | an aliasing decision | the source's aliasing facts | TODO |
+| a phantom callee-saved register | cross-call value caching / the allocation order | count the uses; re-shape | TODO |
+| a shift off by ×4 against the target | the scaffold's pointer arithmetic | cast through a byte pointer | TODO |
+| a branch's arms swapped | branch polarity | put the fall-through block in the `if` | TODO |
+| a cross-jumped tail merged or not merged | the cross-jump count law | shape the shared block count | TODO |
+
+*(Grow this table as the cookbook grows; a tool asserts every section is indexed and every index entry resolves.)*

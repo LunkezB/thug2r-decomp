@@ -66,3 +66,22 @@ Every turn re-sends the whole session context. Prompt caching makes that cheap p
 ## The Effort-map check (E1 — standing rule)
 
 Before each Phase Start, state the recommended effort for planning that phase (Max) and confirm it's set; annotate every task in the plan with its effort level **and its coarse context-cost bucket** (`ctx:S/M/L/U`, see below); restate the recommended effort whenever presenting the NEXT task. This file is evolvable — refine the per-phase map as the project's real effort needs become clear.
+
+## Per-phase effort map (decomp ladder — decomp-architect, installed 2026-10-11)
+
+*The Max shortlist is the set of judgments whose silent error would poison everything downstream; the rest of a phase
+runs at the baseline; breadth is the same analysis across many independent items.*
+
+| Phase | Mandatory-Max tasks | Fine at xHigh | Breadth (fan-out) |
+|---|---|---|---|
+| Phase Start (any) | the plan itself (always Max) | — | wide surveys feeding the plan |
+| 1 extraction + manifest | the container/compression semantics when they are ambiguous | the extractor, the manifest, the cross-validation | a fleet-wide format audit |
+| 2 oracles + load map | every load-address derivation; the segmentation decision (the forced boundaries) | the database import, the text export, the emulator bridge | a survey of every payload's loader route |
+| 3 the all-assembly baseline | the linker-script/layout diagnosis when the first link is red | the build pipeline, the contracts | — |
+| 4 the compiler pinned | **the fingerprint verdict** (the triple, the flags, per-module variation) | the probe wrappers, the differ wiring | the candidate ladder run as parallel probes |
+| 5 census + harness | the census's shape reading (what the strategy will be built on) | the scanners, the reports | the fleet-wide census; the differential harness's pairs |
+| 6 the multipliers | the reconcile ladder's design; any "class is dead" verdict | signatures, propagation, families, carves | mass propagation and remaps |
+| 7 the map + the permuter | **reading the compiler's source into the map**; the plateau classifier's classes | the dump scripts, the permuter wiring | probes across many constructs |
+| 8 the campaign | the routing cliff; **every wall verdict**; the harvest distillation's vocabulary | cards, packs, lanes, gates, recovery | bulk drafting; the harvest over a wave's reports |
+| 9 publish | the contract run's design; any irreversible repository operation (rehearsed) | the publisher, the badges, the README | the fresh-clone proof on a second machine |
+| 10 readability | struct unification decisions; every name that asserts meaning | pins-off by family; formatting | family-batched pin removal, gated |
