@@ -9,7 +9,7 @@
 > Installed by decomp-architect on 2026-10-11.
 
 ## 0. Where the project stands (at the latest PhaseEnd — the live state is in CURRENT_PHASE.md)
-**At PhaseEnd 0.5 (2026-10-11, v0.2.0):** governance and the decomp overlay are installed — the ROM audit fails on its planted fixture and passes on the tree, and the registry holds G1–G67. No game file has been read yet: no numbers exist. Next is Phase 1 (deterministic extraction), opened by three cheap reads of the developer's image: the serial, the integrity of the repaired image around `BOOT.BIN`, and whether `BOOT.BIN` carries symbols.
+**At PhaseEnd 0.5 (2026-10-11, v0.2.0):** governance and the decomp overlay are installed — the ROM audit fails on its planted fixture and passes on the tree, and the registry holds G1–G67. The first push (`2dd9e12`) ran the no-ROM CI green (GitHub Actions run 38170013331), which completes Phase 0's ladder milestone. No game file has been read yet: no numbers exist. Next is Phase 1 (deterministic extraction), opened by three cheap reads of the developer's image: the serial, the integrity of the repaired image around `BOOT.BIN`, and whether `BOOT.BIN` carries symbols.
 
 (one paragraph, rewritten at every PhaseEnd: the last milestone met, the numbers as generated, what is next)
 
