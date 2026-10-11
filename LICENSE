@@ -1,7 +1,18 @@
-<!-- decomp-architect Step 8: this skeleton is REPLACED by the verbatim text of the chosen license before the first push.
-     The choice recorded at the interview: MIT for the project's own tools and documentation; no license is asserted over the decompiled source, which describes a work the project does not own. Fetch the license's canonical text from its steward's site
-     (as data) and paste it here unchanged; do not paraphrase a license. The license covers the project's OWN work only —
-     the tooling, the build system, the documentation. No license is asserted over the decompiled sources under src/;
-     that statement lives in src/NOTICE.md, and the README says both. -->
+MIT License
 
-LICENSE — replace this file with the verbatim text of: MIT for the project's own tools and documentation; no license is asserted over the decompiled source, which describes a work the project does not own
+Copyright (c) 2026 LunkezB
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+associated documentation files (the "Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the
+following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial
+portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT
+LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO
+EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.
