@@ -53,13 +53,15 @@ Every turn re-sends the whole session context. Prompt caching makes that cheap p
 
 *Filled at generation. For each phase, mark which tasks are Max-mandatory, which are fine at xHigh, and which are breadth (Ultracode). The Max shortlist is the small set of judgments where a silent error would be catastrophic.*
 
-{{PER_PHASE_MAP}}
-
 | Phase | Mandatory-Max tasks | Fine at xHigh | Breadth (Ultracode) |
 |---|---|---|---|
 | Phase Start (any) | the plan itself (always Max) | — | wide surveys feeding the plan |
-| [Phase 1] | | | |
-| … | | | |
+| PhaseEnd (any) | the PhaseEnd synthesis and the rules proposed at the close | — | — |
+| 0 governance install | the constitution generation (Gate 2) | the installer's mechanical steps | — |
+| 0.5 the decomp overlay | — (an installer run, verified step by step) | every step | — |
+| 1–10 | see **the decomp ladder table below** (appended by the kit at Phase 0.5): Max on the plan, the PhaseEnd, the compiler pin, every load-address derivation, the segmentation decision and every wall verdict | the rest of each phase | fleet-wide audits, the candidate-compiler probes, bulk drafting |
+
+*In the claude.ai cloud workspace there is no `/effort` toggle: the agent states the recommended level at each transition, and the developer decides whether to move the work to local Claude Code for a Max-level task.*
 
 ## The Effort-map check (E1 — standing rule)
 

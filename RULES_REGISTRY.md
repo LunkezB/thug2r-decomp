@@ -153,7 +153,7 @@ Experimental outputs and worklogs are an immutable archive — analysis writes n
 
 *Filled at constitution generation (Path A/B) or migration (Path C) — the project's domain ground-truth rules: its oracles (X3's "designated oracles" get named here), its definition-of-done gate (M1's concrete gate), its data/provenance specifics, its environment constraints. Draw candidates from `corpus/` (README §How-to-query): install stack matches, generalize spirit-right/stack-wrong kernels, and record provenance on each. Migrated projects also land their surviving legacy rules here.*
 
-*(empty — populated at install)*
+The decomp kit's Phase-0.5 install appends the domain rules here (G1–G67). Any corpus-derived rule that is not decomp-specific goes after the kit's block, at Phase 0.5 or later.
 
 ---
 

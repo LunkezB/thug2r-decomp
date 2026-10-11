@@ -4,9 +4,13 @@
 
 ## Pinned context (the invariants every entry assumes)
 
-{{PINNED_CONTEXT}}
-
-*(Fill at generation: the fixed facts every cookbook entry presupposes — e.g. the toolchain/version triple, the engine + language, the data formats, the target platform. An entry can then assume these rather than restating them.)*
+- **Target:** *Tony Hawk's Underground 2: Remix*, PSP, the Feb 17, 2005 prototype — `BOOT.BIN` first, then any code modules on the same image.
+- **CPU:** Allegrex — 32-bit little-endian MIPS with PSP-specific extensions and an FPU, plus the VFPU vector unit; instruction encodings must match the original assembler's.
+- **Toolchain:** the pinned triple — TODO(phase-4); until then the candidates are Sony `psp-gcc`, SN Systems `pspsnc` and Metrowerks `mwccpsp`, and no entry may assume one of them.
+- **Language:** TODO(phase-2) — C, C++ or mixed, decided from the bytes; entries say which language they apply to.
+- **Split:** splat with its PSP platform; per-function assembly; translation-unit boundaries at the forced boundaries.
+- **The gate:** an entry's lever is proven only when the function matches byte for byte AND the whole-binary hash stays green from a clean rebuild.
+- **Inherited material:** the kit's PS1-era (gcc 2.7.2) levers do not transfer to the PSP compilers; their entry shape does — translate through the compiler pass, never copy the lever (G67).
 
 ## How to use this
 

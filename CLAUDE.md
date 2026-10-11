@@ -13,7 +13,7 @@ Before doing any work, read these files in this order:
 3. Every `phase-ends/PhaseEnd_Phase*.md` in **version/natural numeric order** (`sort -V` — `Phase5` before `Phase5.5`, NOT lexical order, which mis-sorts decimal sub-phases). The build history. **Do NOT read `phase-ends/logs/`** — those are on-demand worklog archives, deliberately outside this load order.
 4. `phase-ends/CURRENT_PHASE.md` if it exists (the in-flight phase state).
 5. `docs/effort-map.md` (the effort doctrine + this project's per-phase effort map).
-6. {{DOMAIN_SESSION_START_EXTRAS}}
+6. `docs/ops-setup.md` (the environment, the pinned toolchain, the oracle endpoints) — and apply the decomp **Session-start extras** at the end of this file (installed at Phase 0.5): the digest rule that bounds step 3, the verbatim checkpoint replay, the oracle ping before reverse-engineering tasks.
 
 After reading, do a preflight appropriate to the NEXT task (e.g. `git status`; verify any external oracle/service the next task needs with a cheap call, per X3). Then state — and nothing else:
 
@@ -53,7 +53,10 @@ Either way: wait for the developer before doing anything. Do not summarize the p
 - **Never edit `PROJECT_CONTEXT.md`.** It is permanent and static (P1). Corrections go in `CURRENT_PHASE.md` and the PhaseEnd, and rule changes in `RULES_REGISTRY.md` — never in the constitution.
 - **Milestone honesty** (P9 + M1). Only an observable, machine-checkable outcome counts as success — the gate is the arbiter, never a self-report or "it ran without errors." Never redefine a term to make a failure pass; report failures as failures, with the output.
 - **Claude commits per task; the developer pushes** (H5/H6). No AI-attribution trailers. Never `git push` from the agent unless explicitly directed.
-- {{DOMAIN_FAILSAFES}}
+- **Never commit game-derived bytes** — the dump, extracted payloads, generated assembly, build output, memory images, the disassembler database, transcripts or text that quote the target's instructions. The repository is public; `tools/audit_public.py` passes before every push.
+- **A match is byte-for-byte and the whole-binary hash stays green** — verified from a clean rebuild, never incremental.
+- **Never `git clean -x` here** — the game-derived data is ignored-but-present; `make clean` is the only clean.
+- **The byte gate is the only claim** — "matched" or "banked" is written only from a tool's printed success line.
 
 ---
 
@@ -96,13 +99,20 @@ When the developer confirms a phase milestone (against its machine-checkable gat
 - **The flywheel** (X4): consult `docs/matching-cookbook.md` before recurring work; feed the generalizable lesson back into both the cookbook and the tooling after — especially after a hard-won win.
 - **Keep `docs/ops-setup.md` current** in the same change as any tooling/env/hook/path change (H7).
 - **Clarify a misconception before a costly/hard-to-reverse action**; **justify a new tool's delta before adopting it** (memory-ratified; §E′).
-{{GENERATED_CONSTRAINTS}}
+- **The developer is a beginner in decompilation** (`who-is-dev`): in every plan, checkpoint and PhaseEnd, say in plain words what a step does and what its result means; keep tasks small; never let an explanation bury the decision being asked for.
+- **Converse in Russian; write the repository in English** — documents, code, comments and commit messages.
+- **Platform-generic vs game-specific:** PSP machinery (toolchain wiring, oracle bridges, census and campaign tools) is written so another PSP project can lift it; THUG2-specific knowledge lives in config, symbols, `src/` and the cookbook's game sections.
+- **C++ awareness:** until Phase 2's language verdict, assume nothing about C vs C++; afterwards, record C++-specific matching rules as they are proven.
+- **The kit's `TODO(platform)` markers** are resolved by the phase that meets them, never guessed in advance; each resolution is recorded in that phase's PhaseEnd.
+- **Push only after the audit:** `python3 tools/audit_public.py` exits 0 on the tracked tree before any push; the agent pushes only when the developer has directed it.
 
 ---
 
 ## Environment
 
-{{ENVIRONMENT}}
+- **Primary:** a claude.ai cloud workspace (Linux, Python 3.13, 2 cores, 7 GB RAM at generation) with this repository cloned from `github.com/LunkezB/thug2r-decomp`; the dump is attached to the conversation and read from `/mnt/user-data/uploads/`, outside the repository. No `/effort` toggle and no session restart exist there — where the protocols say "prompt for the toggle" or "fresh session", state the recommendation and carry on as the developer directs.
+- **Equal home:** local Claude Code on the developer's machine — follow the fresh-machine restore in `docs/ops-setup.md` (it re-points the memory path and runs ProjectArchitect's SETUP §6 once).
+- **Remote:** GitHub, public; CI runs the ROM audit on every push.
 
 - **Agent state is repo-self-contained** (H8): memory in `.claude-state/memory/` (via `autoMemoryDirectory` in `.claude/settings.local.json`), transcripts auto-copied by the SessionEnd hook, `tools/backup-claude-state.sh` swept at every phase boundary. `.claude-state/` is private-repo-only.
 - **No system temp** (H4): all scratch lives under the repo (`.run/`, gitignored).
