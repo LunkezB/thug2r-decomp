@@ -19,13 +19,13 @@ SETUP.md §9's verify passes: `PROJECT_CONTEXT.md` exists with every skeleton se
 - [x] §5 — CLAUDE.md, agent-state wiring, memory seeding, dev interview
 - [x] §6 — global assets (statusline + user settings) — SKIPPED in this harness, see the log
 - [x] §7 — install checkpoint commit
-- [ ] §8 — Path A: Mode 1 intake (from `decomp-architect/intake.decomp.md`) → Gate 1 → Gate 2 → generation; placeholder audit
-- [ ] §9 — close the install phase (PhaseEnd, archive, commit, hard stop)
+- [x] §8 — Path A: Mode 1 intake (from `decomp-architect/intake.decomp.md`) → Gate 1 → Gate 2 → generation; placeholder audit
+- [x] §9 — close the install phase (PhaseEnd, archive, commit, hard stop)
 
 ## Current task
 
-**NOW:** §8 — generation done; awaiting the developer's confirmation of the generated constitution (Gate 2's output review)
-**NEXT:** §9 — close the install phase
+**NOW:** phase closed
+**NEXT:** Phase 0.5 — the decomp-architect kit's SETUP Step 1
 **Last rules check:** n/a (installer)
 
 ## Per-task checkpoint log
@@ -39,6 +39,9 @@ SETUP.md §9's verify passes: `PROJECT_CONTEXT.md` exists with every skeleton se
 - **§7** — Checkpoint commit by explicit path, trailer-free (P/H6 and the installer's §0.6; the project's memory rule `no-commit-co-author` governs over the harness's default trailer). Git identity: `LunkezB <181133849+LunkezB@users.noreply.github.com>` (the developer's GitHub noreply address, chosen for a public repository).
 - **§8 (intake + Gate 1)** — Mode 1 ran from the kit's `intake.decomp.md` (Part A pre-answers kept; the FILL items answered by the developer): motivation = the Remix build's content that the PC Underground 2 lacks (new levels, characters, cutscenes — the developer corrected an earlier reading of "cut content") plus PSP-decomp practice to reuse on other games; developer = beginner, solo; worries = none yet; deployment = claude.ai cloud workspace + public GitHub, local Claude Code as an equal home; resources = 2 cores / 7 GB RAM / ~30 GB free in the workspace. Gate 1 presented the ladder (kept canonical 0–10 instead of the beginner merge, because the kit's rules and `TODO(phase-N)` markers cite rung numbers), the PSP adaptations, the C++ and repaired-image risks; the developer's only adjustment was the motivation wording. The developer also granted the Claude GitHub App write access (verified: `push: true` on the repository; dry-run push accepted).
 - **§8 (Gate 2 + generation)** — Gate 2's effort toggle does not exist in this harness; generation ran in-session at the highest reasoning available, recorded as a harness deviation. Generated: `PROJECT_CONTEXT.md` on the skeleton (every section; Phases 0–10 with a Milestone line each; Phase 0 named "Governance and the firewall" for the kit's Step 1.3 check); registry §E left as the one-line kit pointer (intake Part D — no `### G` heading, so the kit installs G1–G67 without an offset); `CLAUDE.md`'s four generation-time sections (the four decomp fail-safes of Part D); the effort map's Gen1 table (Phases 0/0.5 here, 1–10 deferring to the kit's ladder block); the cookbook's pinned context (toolchain and language as `TODO(phase-4)` / `TODO(phase-2)`); ops-setup's commands as `TODO(phase-N)` lines plus the public-repository backup note. The ProjectArchitect corpus was consulted: per intake Part D, no corpus rule is installed before the kit's block; non-decomp kernels go after it at Phase 0.5 or later. Verified: no placeholder outside `docs/project-architect.md` and the two phase templates; `grep -c "Milestone:" PROJECT_CONTEXT.md` = 11.
+
+- **§8 (Gate 2 output review)** — the developer confirmed the generated constitution ("ок", 2026-10-11 22:47).
+- **§9** — `PhaseEnd_Phase0.md` written (Build Log, Deviations, Plain-English Recap); `tools/backup-claude-state.sh` swept one transcript into `.claude-state/transcripts/`, which is never tracked (public repository — excluded locally until the kit's ignore block lands); this file archived to `phase-ends/logs/PhaseLog_0.md`. The developer directed continuing into Phase 0.5 in the same conversation (no session restart exists in this harness).
 
 ## Blockers / open questions
 
